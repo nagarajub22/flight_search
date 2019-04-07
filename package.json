@@ -1,0 +1,22 @@
+{
+  "name": "flight_search",
+  "version": "1.0.0",
+  "description": "A flight search engine",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "show-taks": "gulp --tasks"
+  },
+  "keywords": [
+    "Flights Search",
+    "Book Flights"
+  ],
+  "author": "Nagaraju",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "4.0.0",
+    "gulp-concat": "2.6.1",
+    "gulp-sass": "4.0.2"
+  }
+}

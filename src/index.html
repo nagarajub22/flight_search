@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flight Search Engine</title>
+
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <div class="content-wrapper">
+            <a id="app-logo" href="#" title="Flight Search Engine"></a>
+        </div>
+    </header>
+    <section id="app-content">
+        <div class="content-wrapper">
+            <aside id="app-sidebar">
+                <div>
+                    <a href="javascript:void(0);" class="travel-type active" id="oneway" title="One Way">One Way</a>
+                    <a href="javascript:void(0);" class="travel-type" id="return" title="Return">Return</a>
+                </div>
+                <form id="flight-search" action="#" method="POST">
+                    <input type="text" name="origin" placeholder="Enter Origin" value="" />
+                    <input type="text" name="destination" placeholder="Enter Destination" value="" />
+                    <input type="text" name="departure" placeholder="Departure Date" value="" />
+                    <input type="text" name="return" placeholder="Return Date" value="" />
+                    <input type="number" name="passenger" placeholder="Passengers" value="" />
+                    <input type="submit" name="search" value="search" />
+                </form>
+
+                <div id="errors"></div>
+
+                <div class="mobile-drawer" onclick="App.toggleSearch();">Search Flight</div>
+                <div class="mobile-drawer opened" onclick="App.toggleSearch();">Close Search</div>
+
+            </aside>
+            <section id="app-results">
+                <div id="flight-route">
+                </div>
+                <div id="flight-list">
+                    <h3 style="line-height: 24px;">Add Origin, Destination, Date to your search!!!!!</h3>
+                </div>
+            </section>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="js/airports.js"></script>
+    <script type="text/javascript" src="js/auto-complete.min.js"></script>
+    <script type="text/javascript" src="js/datepicker.js"></script>
+    <script type="text/javascript" src="js/availability.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+</body>
+
+</html>

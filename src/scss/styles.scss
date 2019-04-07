@@ -1,0 +1,303 @@
+@import "fonts.scss";
+@import "resets.scss";
+@import "variables.scss";
+@import "mixins.scss";
+@import "auto-complete.scss";
+@import "datepicker.scss";
+
+body,
+html {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  height: 100%;
+  background-image: linear-gradient($gradient_start_color, $gradient_stop_color);
+}
+
+.content-wrapper {
+  width: 970px;
+  margin: 0px auto;
+}
+
+header {
+  background: $dark_primary_color;
+  height: 54px;
+}
+
+input[type="submit"],
+.action-btn {
+  width: 150px;
+  height: 32px;
+  margin: 15px 0px 0px 50px;
+  border: none;
+  display: block;
+  background: $orange_action_color;
+  color: $light_primary_color;
+  text-transform: uppercase;
+  border-radius: 4px;
+  text-decoration: none;
+  line-height: 32px;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#app-logo {
+  display: inline-block;
+  width: 132px;
+  height: 54px;
+  background: url("img/logo.png") no-repeat center center;
+}
+#app-content {
+  background: $light_primary_color;
+  background: linear-gradient(90deg, $transparent_dark_color 57%, $light_primary_color 57%, $light_primary_color 100%);
+}
+#app-sidebar {
+  @extend %border-box;
+  position: absolute;
+  width: 260px;
+  padding-top: 75px;
+
+  div {
+    height: 36px;
+  }
+
+  .travel-type {
+    @extend %border-box;
+    width: 110px;
+    height: 36px;
+    border: 1px solid $light_secondary_color;
+    text-align: center;
+    color: $light_primary_color;
+    line-height: 36px;
+    text-decoration: none;
+    float: left;
+
+    &.active {
+      background: $dark_tertiary_color;
+      border: none;
+    }
+
+    &:last-child {
+      margin: 0px 20px;
+    }
+  }
+
+  input[type="text"], input[type="number"], input[type="date"] {
+    width: 238px;
+    height: 36px;
+    border: 1px solid $dark_primary_color;
+    text-indent: 5px;
+    margin-top: 10px;
+
+    &.error {
+      border-color: $orange_action_color;
+    }
+  }
+
+  .mobile-drawer {
+    display: none;
+  }
+
+  .mobile-drawer.opened {
+    display: none;
+  }
+
+  #errors {
+    margin-top: 15px;
+    color: $light_primary_color;
+  }
+}
+#app-results {
+  @extend %border-box;
+  margin-left: 260px;
+  padding-top: 75px;
+  padding: 75px 20px 0px;
+  background: $light_primary_color;
+  overflow-y: auto;
+
+  #flight-route {
+    > div {
+      border-bottom: 2px solid $light_tertiary_color;
+      height: 50px;
+    }
+    #route-info {
+      float: left;
+      h2,
+      span {
+        float: left;
+      }
+      span {
+        font-size: 26px;
+        padding: 0px 25px;
+      }
+    }
+    #route-date {
+      float: right;
+    }
+  }
+
+  .flight-item {
+    padding: 20px;
+    margin-top: 20px;
+    height: 110px;
+    border: 2px solid $light_tertiary_color;
+    border-radius: 4px;
+
+    &:hover,
+    &:focus {
+      background: $light_tertiary_color;
+    }
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
+
+  .flight-info-column {
+    width: 160px;
+    float: left;
+    &.right {
+      width: auto;
+      float: right;
+
+      a {
+        margin-top: 0px;
+      }
+    }
+    div {
+      > span:first-child {
+        display: inline-block;
+        width: 55px;
+      }
+      span span {
+        width: auto;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .flight-book-action {
+    width: auto;
+    padding: 0px 20px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .content-wrapper {
+    width: auto;
+  }
+  header {
+    .content-wrapper {
+      padding: 0px 15px;
+    }
+  }
+  #app-sidebar {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    input[type="text"], input[type="number"], input[type="date"] {
+      width: 226px;
+    }
+
+    .travel-type:last-child {
+      margin: 0px 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .content-wrapper {
+    width: auto;
+  }
+  header {
+    position: relative;
+    z-index: 10;
+    .content-wrapper {
+      padding: 0px 15px;
+    }
+  }
+  #app-content {
+    background: none;
+  }
+  #app-sidebar {
+    position: absolute;
+    padding-top: 20px;
+    height: 400px;
+    top: -346px;
+    width: 100%;
+    background-image: linear-gradient($gradient_start_color, $gradient_stop_color);
+
+    &.open {
+      transition: top 0s ease-in;
+      -webkit-transition: top 0.2s ease-in;
+      top: 54px; 
+
+      .mobile-drawer.opened {
+        display: block;
+      }
+      .mobile-drawer {
+        display: none;
+      }
+    }
+
+    > div, form {
+      width: 242px;
+      margin: 0px auto;
+    }
+
+    .travel-type:last-child {
+      margin-right: 0px;
+    }
+
+    .mobile-drawer {
+      display: block;
+      width: 150px;
+      height: 20px;
+      text-align: center;
+      background: $dark_tertiary_color;
+      color: $light_primary_color;
+      line-height: 20px;
+      position: absolute;
+      bottom: -20px;
+      right: 0px;
+      cursor: pointer;
+    }
+
+  }
+  #app-results {
+    margin-left: 0px;
+
+    .flight-item {
+      height: auto;
+    }
+
+    .flight-info-column {
+      float: none;
+      width: auto;
+      margin-top: 10px;
+
+      div, h4 {
+        display: inline;
+        padding-left: 10px;
+      }
+
+      .depart {
+        display: block;
+      }
+
+      &.right {
+        float: none;
+        clear: both;
+
+        a {
+          width: 125px;
+          margin: 0px;
+        }
+      }
+    }
+  }
+}
